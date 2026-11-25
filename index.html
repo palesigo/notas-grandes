@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14213b">
+  <title>Notas Grandes</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/icon-180.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <header><h1>Notas Grandes</h1><span id="offline" hidden>Disponível offline</span></header>
+    <div class="toolbar">
+      <button id="new" type="button">Nova nota</button>
+      <button id="open" type="button">As minhas notas</button>
+      <button id="xl" type="button" aria-pressed="false">Teclas XL</button>
+    </div>
+    <label class="sr" for="note">Texto da nota</label>
+    <textarea id="note" rows="3" inputmode="none" lang="pt-PT" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="A tua nota aparece aqui…"></textarea>
+    <p id="storage" role="status">A carregar…</p>
+    <section aria-label="Teclado no ecrã">
+      <div class="toolbar layers" role="group" aria-label="Conjuntos de teclas">
+        <button type="button" data-layer="letters" aria-pressed="true">Letras</button>
+        <button type="button" data-layer="accents" aria-pressed="false">Acentos</button>
+        <button type="button" data-layer="symbols" aria-pressed="false">123 e símbolos</button>
+      </div>
+      <div id="keys" class="keys" role="group" aria-label="Teclas de escrita"></div>
+      <div class="editing" role="group" aria-label="Comandos de escrita">
+        <button type="button" id="shift" aria-pressed="false">Maiúsculas</button>
+        <button type="button" data-command="space">Espaço</button>
+        <button type="button" data-command="erase">Apagar</button>
+        <button type="button" data-command="line">Nova linha</button>
+        <button type="button" data-command="undo" id="undo">Desfazer</button>
+        <button type="button" data-command="left" aria-label="Mover cursor para a esquerda">←</button>
+        <button type="button" data-command="right" aria-label="Mover cursor para a direita">→</button>
+      </div>
+    </section>
+    <details>
+      <summary>Opções e cópias de segurança</summary>
+      <p>As notas ficam neste dispositivo. Guarda uma cópia antes de limpares os dados da aplicação ou mudares de iPad.</p>
+      <div class="toolbar">
+        <button type="button" id="native" aria-pressed="false">Teclado do iPad</button>
+        <button type="button" id="text">Exportar nota (.txt)</button>
+        <button type="button" id="backup">Guardar cópia (.json)</button>
+        <button type="button" id="restore">Importar cópia</button>
+        <input type="file" id="file" accept=".json,application/json" hidden>
+      </div>
+      <p id="feedback" role="status"></p>
+    </details>
+  </main>
+  <dialog id="library" aria-labelledby="library-title">
+    <h2 id="library-title">As minhas notas</h2>
+    <form method="dialog"><button type="submit" autofocus>Fechar</button></form>
+    <ul id="notes"></ul>
+  </dialog>
+  <noscript>Ativa o JavaScript para escrever e guardar notas.</noscript>
+</body>
+</html>
