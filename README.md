@@ -1,4 +1,4 @@
-# Notas Grandes
+# Notas Grandes 
 
 PWA em português europeu para escrever notas no iPad com um teclado integrado. Não requer conta, servidor, dependências de npm nem compilação. Funciona offline depois de a aplicação preparar os ficheiros na primeira abertura com ligação.
 
